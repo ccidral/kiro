@@ -1,0 +1,7 @@
+{
+  "app.launchOnStartup": false,
+  "autocomplete.fuzzySearch": true,
+  "codeWhisperer.shareCodeWhispererContentWithAWS": false,
+  "telemetry.enabled": false,
+  "mcp.loadedBefore": true
+}

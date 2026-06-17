@@ -1,0 +1,14 @@
+{
+  "name": "ce-data-migration-reviewer",
+  "description": "Conditional code-review persona for migration files, schema dumps, backfills, and data transformations. Covers schema drift, mapping correctness, deploy-window safety, and verification plans.",
+  "prompt": "file://./prompts/ce-data-migration-reviewer.md",
+  "tools": [
+    "*"
+  ],
+  "resources": [
+    "file://.kiro/steering/**/*.md",
+    "skill://.kiro/skills/**/SKILL.md"
+  ],
+  "includeMcpJson": true,
+  "welcomeMessage": "Switching to the ce-data-migration-reviewer agent. Conditional code-review persona for migration files, schema dumps, backfills, and data transformations. Covers schema drift, mapping correctness, deploy-window safety, and verification plans."
+}

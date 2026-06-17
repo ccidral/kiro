@@ -1,0 +1,49 @@
+{
+  "mcpServers": {
+    "atlassian-mcp-server": {
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "disabled": true,
+      "autoApprove": [
+        "getAccessibleAtlassianResources",
+        "searchConfluenceUsingCql",
+        "getConfluencePage",
+        "getJiraIssue"
+      ]
+    },
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "disabled": false,
+      "autoApprove": [
+        "query-docs",
+        "resolve-library-id"
+      ]
+    },
+    "ck-search": {
+      "command": "ck",
+      "args": [
+        "--serve"
+      ],
+      "disabled": true,
+      "autoApprove": [
+        "regex_search",
+        "lexical_search",
+        "semantic_search",
+        "semantic_search"
+      ]
+    }
+  },
+  "powers": {
+    "mcpServers": {
+      "power-strands-strands-agents": {
+        "command": "uvx",
+        "args": [
+          "strands-agents-mcp-server"
+        ],
+        "env": {
+          "FASTMCP_LOG_LEVEL": "INFO"
+        },
+        "disabled": true
+      }
+    }
+  }
+}

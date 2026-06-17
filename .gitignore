@@ -1,0 +1,8 @@
+.cli_bash_history
+extensions/
+tmp/
+sessions/
+external/
+powers/
+argv.json
+logs

@@ -1,0 +1,51 @@
+{
+    "languages": {
+        "python": {
+            "name": "pyright",
+            "command": "pyright-langserver",
+            "args": [
+                "--stdio"
+            ],
+            "file_extensions": [
+                "py"
+            ],
+            "project_patterns": [
+                "pyproject.toml",
+                "setup.py",
+                "requirements.txt",
+                "pyrightconfig.json"
+            ],
+            "exclude_patterns": [
+                "**/__pycache__/**",
+                "**/venv/**",
+                "**/.venv/**",
+                "**/.pytest_cache/**"
+            ],
+            "multi_workspace": false,
+            "initialization_options": {},
+            "request_timeout_secs": 60
+        },
+        "csharp": {
+            "name": "omnisharp",
+            "command": "/opt/omnisharp/OmniSharp",
+            "args": [
+                "--languageserver",
+                "--stdio"
+            ],
+            "file_extensions": [
+                "cs"
+            ],
+            "project_patterns": [
+                "*.csproj",
+                "*.sln"
+            ],
+            "exclude_patterns": [
+                "**/bin/**",
+                "**/obj/**"
+            ],
+            "multi_workspace": false,
+            "initialization_options": {},
+            "request_timeout_secs": 60
+        }
+    }
+}
