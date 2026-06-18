@@ -1,8 +1,12 @@
 .cli_bash_history
-extensions/
-tmp/
-sessions/
-external/
-powers/
+.trust-migration.json
 argv.json
+extensions/
+external/
 logs
+powers/
+sessions/
+settings/permissions.yaml
+tmp/
+workspace-roots/
+
