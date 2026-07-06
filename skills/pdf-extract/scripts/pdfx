@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+"""pdfx — Convert PDF to Markdown for LLM consumption.
+
+Usage:
+    pdfx <file> [--pages RANGE]
+"""
+
+import sys
+import argparse
+
+try:
+    import pymupdf4llm
+except ImportError:
+    print("pymupdf4llm is not installed. Install with: pip install pymupdf4llm", file=sys.stderr)
+    sys.exit(1)
+
+
+def parse_pages(spec: str) -> list[int]:
+    """Parse page spec into 0-indexed page numbers."""
+    pages = []
+    for part in spec.split(","):
+        part = part.strip()
+        if "-" in part:
+            start, end = part.split("-", 1)
+            pages.extend(range(int(start) - 1, int(end)))
+        else:
+            pages.append(int(part) - 1)
+    return pages
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("file")
+    parser.add_argument("--pages", default=None)
+    args = parser.parse_args()
+
+    kwargs = {"filename": args.file}
+    if args.pages:
+        kwargs["pages"] = parse_pages(args.pages)
+
+    try:
+        md = pymupdf4llm.to_markdown(**kwargs)
+    except FileNotFoundError:
+        print(f"File not found: {args.file}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"Cannot process PDF: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    print(md, end="")
+
+
+if __name__ == "__main__":
+    main()
